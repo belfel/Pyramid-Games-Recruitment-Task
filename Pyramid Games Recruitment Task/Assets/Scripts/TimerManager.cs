@@ -27,4 +27,10 @@ public class TimerManager : MonoBehaviour
     {
         currentAttemptTime.SetValue(0f);
     }
+
+    public void UpdateBestTime()
+    {
+        if (currentAttemptTime.value < bestTime.value)
+            bestTime.value = currentAttemptTime.value;
+    }
 }

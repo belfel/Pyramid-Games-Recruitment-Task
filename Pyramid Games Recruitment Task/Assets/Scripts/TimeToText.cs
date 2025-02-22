@@ -5,6 +5,8 @@ using UnityEngine;
 public class TimeToText : MonoBehaviour
 {
     [SerializeField] private FloatVariable time;
+    [SerializeField] private bool updateEveryFrame = true;
+    [SerializeField] private bool updateOnStart = true;
     private TMP_Text tmpText;
 
     private void Awake()
@@ -12,8 +14,25 @@ public class TimeToText : MonoBehaviour
         tmpText = GetComponent<TMP_Text>();
     }
 
+    private void Start()
+    {
+        if (updateOnStart)
+            UpdateText();
+    }
+
     private void Update()
     {
-        tmpText.text = System.TimeSpan.FromSeconds(time.value).ToString(@"mm\:ss\:fff");
+        if (updateEveryFrame)
+            UpdateText();
+    }
+
+    public void UpdateText()
+    {
+        tmpText.text = ConvertToString(time.value);
+    }
+
+    private string ConvertToString(float timeInSeconds)
+    {
+        return System.TimeSpan.FromSeconds(time.value).ToString(@"mm\:ss\:fff");
     }
 }

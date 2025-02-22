@@ -11,6 +11,9 @@ GameObject:
   - component: {fileID: 1044670028686023828}
   - component: {fileID: 5825531608689952551}
   - component: {fileID: 1743002860139971085}
+  - component: {fileID: 5877727937933042439}
+  - component: {fileID: 5726369482180258921}
+  - component: {fileID: 6896820239881112963}
   m_Layer: 0
   m_Name: Exit Door
   m_TagString: Untagged
@@ -46,6 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ded43525c36f24f41a8be13d7c6cc550, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorOpened: {fileID: 11400000, guid: 5ec3fdf635cbe754db191202e7bcd9fa, type: 2}
   doorHinge: {fileID: 1008094719837033203}
   openSpeed: 200
 --- !u!65 &1743002860139971085
@@ -67,8 +71,112 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 5, z: 5}
+  m_Size: {x: 5, y: 5, z: 1}
   m_Center: {x: 0, y: 2.5, z: 0}
+--- !u!114 &5877727937933042439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5477249979332104830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1bd65a58c76351448295f20d8480a11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueTree: {fileID: 5726369482180258921}
+--- !u!114 &5726369482180258921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5477249979332104830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44d354461c1a5a146b5a674f1b8b49f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueWindowContent: {fileID: 11400000, guid: 43a3858b7522f9e46b5c7af4271c5e98, type: 2}
+  dialogueWindowOpened: {fileID: 11400000, guid: 6d80887bf7b8f6a4abd0b733eb7c77f1, type: 2}
+  dialogueWindowClosed: {fileID: 11400000, guid: 90760364a732de04490d93af944de224, type: 2}
+  dialogueWindows:
+  - title: You need a key!
+    options:
+    - text: OK
+      onSelectEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      nextDialogueIndex: -1
+  - title: Open?
+    options:
+    - text: Yes
+      onSelectEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 5825531608689952551}
+            m_TargetAssemblyTypeName: Door, Assembly-CSharp
+            m_MethodName: OpenDoor
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      nextDialogueIndex: -1
+    - text: No
+      onSelectEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      nextDialogueIndex: -1
+--- !u!114 &6896820239881112963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5477249979332104830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa27496997b64614fa6c5242f9ac3a48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory: {fileID: 11400000, guid: e3718110bf630c6429c891d116ba5aa2, type: 2}
+  item: 0
+  gotItem:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5726369482180258921}
+        m_TargetAssemblyTypeName: DialogueWindowTree, Assembly-CSharp
+        m_MethodName: SetWindowIndex
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  lostItem:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5726369482180258921}
+        m_TargetAssemblyTypeName: DialogueWindowTree, Assembly-CSharp
+        m_MethodName: SetWindowIndex
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &2713588059265223517
 PrefabInstance:
   m_ObjectHideFlags: 0

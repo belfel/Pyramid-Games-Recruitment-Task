@@ -6,6 +6,9 @@ public class DoorSpawner : MonoBehaviour
     [SerializeField] private GameObject doorPrefab;
     [SerializeField] private List<GameObject> wallsToSpawnOn = new List<GameObject>();
 
+    private GameObject replacedWall;
+    private GameObject door;
+
     private void Awake()
     {
         if (doorPrefab == null)
@@ -20,14 +23,28 @@ public class DoorSpawner : MonoBehaviour
         SpawnDoor();
     }
 
-    private void SpawnDoor()
+    public void SpawnDoor()
     {
+        ResetReplacedWall();
+
         if (wallsToSpawnOn.Count < 1)
             return;
 
         int randomIndex = Random.Range(0, wallsToSpawnOn.Count);
         Transform spawnTransform = wallsToSpawnOn[randomIndex].transform;
-        Destroy(spawnTransform.gameObject);
-        Instantiate(doorPrefab, spawnTransform.position, spawnTransform.rotation);
+        replacedWall = spawnTransform.gameObject;
+        replacedWall.SetActive(false);
+        door = Instantiate(doorPrefab, spawnTransform.position, spawnTransform.rotation);
+    }
+
+    public void ResetReplacedWall()
+    {
+        if (replacedWall == null)
+            return;
+
+        replacedWall.SetActive(true);
+
+        if (door != null)
+            Destroy(door);
     }
 }

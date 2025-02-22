@@ -12,11 +12,6 @@ public class Chest : MonoBehaviour
             Debug.LogWarning("chestHinge property not assigned");
     }
 
-    private void OnMouseDown()
-    {
-        StartCoroutine(OpenRoutine());
-    }
-
     private IEnumerator OpenRoutine()
     {
         if (chestHinge == null)
@@ -24,11 +19,16 @@ public class Chest : MonoBehaviour
 
         float chestTopRotation = 0f;
 
-        do
-        {
+        do {
             chestHinge.transform.localRotation = Quaternion.Euler(chestTopRotation, 0f, 0f);
             chestTopRotation -= Time.deltaTime * openSpeed;
             yield return null;
+
         } while (chestTopRotation > -90f);
+    }
+
+    public void OpenChest()
+    {
+        StartCoroutine(OpenRoutine());
     }
 }

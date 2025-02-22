@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
+    public GameEvent doorOpened;
+
     [SerializeField] private GameObject doorHinge;
     [SerializeField] private float openSpeed = 1f;
 
@@ -10,11 +12,6 @@ public class Door : MonoBehaviour
     {
         if (doorHinge == null)
             Debug.LogWarning("doorHinge property not assigned");
-    }
-
-    private void OnMouseDown()
-    {
-        StartCoroutine(OpenRoutine());
     }
 
     private IEnumerator OpenRoutine()
@@ -30,5 +27,13 @@ public class Door : MonoBehaviour
             doorRotation -= Time.deltaTime * openSpeed;
             yield return null;
         } while (doorRotation > -90f);
+
+        if (doorOpened != null)
+            doorOpened.Raise();
+    }
+
+    public void OpenDoor()
+    {
+        StartCoroutine(OpenRoutine());
     }
 }

@@ -9,6 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44d354461c1a5a146b5a674f1b8b49f4, type: 3}
+  m_Script: {fileID: 11500000, guid: 9c13f469927374342a4ec21ed9309fb7, type: 3}
   m_Name: DialogueWindowContent
   m_EditorClassIdentifier: 
+  source: {fileID: 0}
+  title: Open chest?
+  options: []
