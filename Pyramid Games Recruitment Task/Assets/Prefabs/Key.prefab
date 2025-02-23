@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8488224606653364483}
   - component: {fileID: 7388811467975829310}
   - component: {fileID: 2672857625479344771}
+  - component: {fileID: 950076997897797977}
   m_Layer: 0
   m_Name: Key
   m_TagString: Untagged
@@ -136,6 +137,20 @@ MonoBehaviour:
         m_PersistentCalls:
           m_Calls: []
       nextDialogueIndex: -1
+--- !u!114 &950076997897797977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1174083218085426808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96034c9a8f05d934683d557f97821a82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightMaterial: {fileID: 2100000, guid: f84a03ade3d0e434aa4f6a119c4ec311, type: 2}
+  objectRenderer: {fileID: 7202582693082589658}
 --- !u!1001 &7202582693084868070
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -205,6 +220,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 41d1cac196452694fb10f2476db79e6e, type: 3}
+--- !u!23 &7202582693082589658 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2311228, guid: 41d1cac196452694fb10f2476db79e6e, type: 3}
+  m_PrefabInstance: {fileID: 7202582693084868070}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7202582693084923736 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 469694, guid: 41d1cac196452694fb10f2476db79e6e, type: 3}

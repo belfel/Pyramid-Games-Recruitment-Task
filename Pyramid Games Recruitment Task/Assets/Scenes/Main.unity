@@ -454,7 +454,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 369.14, y: 96.93}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &141635012
 MonoBehaviour:
@@ -3222,7 +3222,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 174.57, y: -33.465}
-  m_SizeDelta: {x: 349.14, y: 66.93}
+  m_SizeDelta: {x: 349.14, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &854780051
 MonoBehaviour:
@@ -7087,10 +7087,10 @@ RectTransform:
   - {fileID: 854780050}
   m_Father: {fileID: 141635011}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 184.57, y: -10}
-  m_SizeDelta: {x: 349.14, y: 66.93}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 66.93}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &1887925945
 CanvasRenderer:
@@ -7573,6 +7573,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1985630125}
         m_TargetAssemblyTypeName: DoorSpawner, Assembly-CSharp
         m_MethodName: SpawnDoor
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: e3718110bf630c6429c891d116ba5aa2, type: 2}
+        m_TargetAssemblyTypeName: Inventory, Assembly-CSharp
+        m_MethodName: Clear
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

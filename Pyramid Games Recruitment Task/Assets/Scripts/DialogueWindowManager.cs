@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -40,6 +41,7 @@ public class DialogueWindowManager : MonoBehaviour
         }
 
         ui.SetActive(true);
+        RefreshLayoutGroupsImmediateAndRecursive(gameObject);
     }
 
     public void HideWindow()
@@ -65,5 +67,18 @@ public class DialogueWindowManager : MonoBehaviour
         for (int i = options.Count - 1; i >= 0; i--)
             Destroy(options[i]);
         options.Clear();
+    }
+
+    public static void RefreshLayoutGroupsImmediateAndRecursive(GameObject root)
+    {
+        var componentsInChildren = root.GetComponentsInChildren<LayoutGroup>(true);
+        foreach (var layoutGroup in componentsInChildren)
+        {
+            LayoutRebuilder.ForceRebuildLayoutImmediate(layoutGroup.GetComponent<RectTransform>());
+        }
+
+        var parent = root.GetComponent<LayoutGroup>();
+        if (parent != null)
+            LayoutRebuilder.ForceRebuildLayoutImmediate(parent.GetComponent<RectTransform>());
     }
 }

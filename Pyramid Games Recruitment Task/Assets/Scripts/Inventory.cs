@@ -18,4 +18,10 @@ public class Inventory : ScriptableObject
         items.Remove(item);
         onInventoryChangedEvent.Raise();
     }
+
+    public void Clear()
+    {
+        items.Clear();
+        onInventoryChangedEvent.Raise();
+    }
 }
