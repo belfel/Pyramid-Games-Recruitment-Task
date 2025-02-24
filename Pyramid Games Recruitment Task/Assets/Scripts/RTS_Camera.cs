@@ -5,6 +5,15 @@ public class RTS_Camera : MonoBehaviour
     [SerializeField] private float movementSpeed = 1f;
     [SerializeField] private float rotationSpeed = 1f;
 
+    private Vector3 startPosition;
+    private Quaternion startRotation;
+
+    private void Awake()
+    {
+        startPosition = transform.position;
+        startRotation = transform.rotation;
+    }
+
     private void Update()
     {
         ProcessMovement();
@@ -32,5 +41,11 @@ public class RTS_Camera : MonoBehaviour
 
         if (Input.GetKey(KeyCode.E))
             transform.Rotate(Vector3.up * rotationSpeed * Time.deltaTime, Space.World);
+    }
+
+    public void ResetTransform()
+    {
+        transform.position = startPosition;
+        transform.rotation = startRotation;
     }
 }
