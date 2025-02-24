@@ -30,7 +30,7 @@ public class TimerManager : MonoBehaviour
 
     public void UpdateBestTime()
     {
-        if (currentAttemptTime.value < bestTime.value)
+        if (currentAttemptTime.value < bestTime.value || bestTime.value == 0f)
             bestTime.value = currentAttemptTime.value;
     }
 }

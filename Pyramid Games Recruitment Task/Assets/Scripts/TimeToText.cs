@@ -6,7 +6,7 @@ public class TimeToText : MonoBehaviour
 {
     [SerializeField] private FloatVariable time;
     [SerializeField] private bool updateEveryFrame = true;
-    [SerializeField] private bool updateOnStart = true;
+    [SerializeField] private bool updateOnEnable = true;
     private TMP_Text tmpText;
 
     private void Awake()
@@ -14,9 +14,9 @@ public class TimeToText : MonoBehaviour
         tmpText = GetComponent<TMP_Text>();
     }
 
-    private void Start()
+    private void OnEnable()
     {
-        if (updateOnStart)
+        if (updateOnEnable)
             UpdateText();
     }
 
